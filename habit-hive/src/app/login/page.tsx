@@ -23,7 +23,7 @@ export default function Login() {
   const mutation = useMutation({
     mutationFn: async (data: LoginFormInputs) => {
       const res = await fetch(
-        "https://habit-hive-server.onrender.com/api/auth/login",
+        "/api/auth/login",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -31,12 +31,16 @@ export default function Login() {
           body: JSON.stringify(data),
         }
       );
+    
+      const responseData = await res.json();
+    
       if (!res.ok) {
-        const errorData = await res.json();
-        throw new Error(errorData.message || "Login failed");
+        throw new Error(responseData.message || "Login failed");
       }
-      return res.json();
-    },
+    
+      console.log(responseData);
+      return responseData;
+    },    
     onSuccess: () => {
       router.push("/dashboard");
     },

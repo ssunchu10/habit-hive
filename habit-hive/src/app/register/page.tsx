@@ -38,7 +38,7 @@ export default function Register() {
     mutationFn: async (data: SignUpRequest) => {
       console.log(data);
       const res = await fetch(
-        "https://habit-hive-server.onrender.com/api/auth/register",
+        "api/auth/register",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

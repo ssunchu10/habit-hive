@@ -1,0 +1,62 @@
+/* components/Navbar/Navbar.module.css */
+
+.navbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #1f2937; /* gray-800 */
+    padding: 0.5rem 1rem;
+    z-index: 50;
+    border-top: 1px solid #374151; /* gray-700 */
+  }
+  
+  @media (min-width: 768px) {
+    .navbar {
+      top: 0;
+      bottom: unset;
+      border-top: none;
+      border-bottom: 1px solid #374151;
+    }
+  }
+  
+  .navList {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .navItem {
+    list-style: none;
+  }
+  
+  .navLink {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .iconWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    color: #cbd5e1; /* slate-300 */
+    transition: color 0.2s ease;
+  }
+  
+  .iconWrapper:hover {
+    color: white;
+  }
+  
+  .active {
+    color: #3b82f6; /* blue-500 */
+    font-weight: 600;
+  }
+  
+  .label {
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+  }
+  

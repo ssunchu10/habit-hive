@@ -8,16 +8,11 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
+  withCredentials: true, 
 });
 
-// Set the auth token for future requests
-export const setAuthToken = (token: string | null) => {
-  if (token) {
-    api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-  } else {
-    delete api.defaults.headers.common['Authorization'];
-  }
-};
+// Cookie-based authentication - no need to manually set tokens
+// The server handles authentication via HTTP-only cookies
 
 // Auth APIs
 export const register = (data: RegisterRequest) => api.post('/auth/register', data);
